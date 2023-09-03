@@ -1,0 +1,28 @@
+<div class="todo-list-container bg-light py-5">
+  <div class="container">
+    <h3 class="text-center text-secondary mb-5">Let's get some work done!</h3>
+
+    <div class="todo-item mb-3" *ngFor="let item of todoList">
+      <button
+        class="btn btn-primary"
+        *ngIf="item.completed; else undoButton"
+        (click)="undoTodo(item.id)"
+      >
+        Undo
+      </button>
+      <ng-template #undoButton>
+        <button class="btn btn-success" (click)="completeTodo(item.id)">
+          Complete
+        </button>
+      </ng-template>
+      <button class="btn btn-danger ms-2" (click)="deleteTodo(item.id)">
+        Delete
+      </button>
+      <span
+        class="todo-title ms-5"
+        [ngClass]="{ 'text-decoration-line-through': item.completed }"
+        >{{ item.title }}</span
+      >
+    </div>
+  </div>
+</div>

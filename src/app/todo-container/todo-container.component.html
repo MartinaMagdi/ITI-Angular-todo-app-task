@@ -1,0 +1,7 @@
+<app-todo-form (addTodoEvent)="addTodo($event)"></app-todo-form>
+<app-todo-list
+  [todoList]="todoList"
+  (deleteTodoEvent)="deleteTodo($event)"
+  (completeTodoEvent)="completeTodo($event)"
+  (undoTodoEvent)="undoTodo($event)"
+></app-todo-list>
